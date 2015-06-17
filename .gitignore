@@ -1,0 +1,8 @@
+*.*~
+.DS_Store
+.brackets.json
+node_modules/
+.sass-cache/
+client/
+server/composer.lock
+server/composer.phar

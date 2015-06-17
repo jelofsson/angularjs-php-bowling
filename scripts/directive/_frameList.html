@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+        <tr>
+          <th>#</th>
+          <th>First throw</th>
+          <th>Second throw</th>
+          <th></th>
+        </tr>
+  </thead>
+  <tbody>
+        <tr ng-repeat="frame in frames">
+          <th scope="row">{{$index + 1}}</th>
+          <td>{{ frame.first }}</td>
+          <td>{{ frame.second }}</td>
+          <td ng-show="$index+1<10 || frame.bonus<1"></td>
+          <td ng-show="$index+1==10 && frame.bonus>0"><b>Bonus:</b> {{ frame.bonus }}</td>
+        </tr>
+      </tbody>
+</table>

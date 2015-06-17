@@ -1,0 +1,61 @@
+@import "variables";
+@import "bootstrap";
+@import "bootstrap/theme";
+
+// Prettier links
+a { text-decoration: none; -webkit-transition: color .3s ease-in-out; transition: color .3s ease-in-out; }
+a:link { color: $link-color; -webkit-transition: color .3s ease-in-out; transition: color .3s ease-in-out; }
+a:visited { color: $link-color; }
+a:hover { color: $link-hover-color; -webkit-transition: color .3s ease-in-out; transition: color .3s ease-in-out; }
+a:active { color: $link-color; -webkit-transition: color .3s ease-in-out; transition: color .3s ease-in-out; }
+
+// General
+h1{
+    width: 100%;
+    margin: 0 auto 18px auto;
+    font-weight: normal;
+    font-size: font-size-h1;
+    font-family: $headings-font-family;
+    letter-spacing: $headings-spacing;
+    color: $headings-color;
+    text-align: center;
+    line-height: 55px;
+}
+
+.alert {
+  font-size: $font-size-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wrapper {
+    width: $wrapper-width;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: $gray-lighter;
+}
+
+.footer p { 
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-small;
+    text-align: center;
+    line-height: $footer-height; 
+    margin: 0;
+}
+
+.footer-w {
+    width: $wrapper-width;
+    margin: 0 auto;
+}
+
+form button {
+    margin-top: 10px;
+    width: 100%;
+}

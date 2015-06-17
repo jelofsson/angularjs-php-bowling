@@ -1,0 +1,25 @@
+<div class="row">
+    <form name="frameForm" ng-submit="addFrameToArray()">
+      <div class="col-md-3">
+          <div class="form-group">
+            <label for="first">First throw:</label>
+            <input type="number" name="first" id="first" ng-model="first" ng-min="0" ng-max="10" only-digits />
+          </div>
+      </div>
+      <div class="col-md-3">
+            <div class="form-group">
+            <label for="second">Second throw:</label>
+            <input type="number" name="second" id="second" ng-model="second" ng-min="0" ng-max="secondMax" only-digits />
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="form-group" ng-show="frames.length >= 9">
+            <label for="bonus">Bonus throw:</label>
+            <input type="number" name="bonus" id="bonus" ng-model="bonus" ng-min="0" ng-max="bonusMax" only-digits />
+          </div>
+      </div>
+      <div class="col-md-3">
+          <button class="btn btn-default btn-lg" type="submit" ng-disabled="frames.length==10">Submit score</button>
+      </div>
+    </form>
+</div>
