@@ -21,6 +21,12 @@ To run in the terminal, cd to project `/server` folder and run command:
 ## Usage - client
 
 First make sure that you have compiled the client files. Then cd to project and open `/client/index.html`
+    
+## Unit Testing
+
+Install [phpunit](https://phpunit.de/getting-started.html) globally on your system.
+
+    phpunit --bootstrap server/test.php server/classes/test/bowlingTest.php 
 
 ## Author
 
