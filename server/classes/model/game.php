@@ -14,13 +14,18 @@ class Game {
         $this->frames[] = $f;
     }
     
-    // Return the final score of our frames
     public function score()
+    {   
+        // Return the final score of our frames
+        return $this->scoreForFrame($this->numberOfFrames());
+    }
+    
+    public function scoreForFrame($theFrame)
     {
         $finalScore = 0;
         
         // Calculate our score
-        for($i=0; $i<count($this->frames); $i++)
+        for($i=0; $i<$theFrame; $i++)
         {
             // Add score from frame
             $finalScore += $this->frames[$i]->score();
@@ -43,6 +48,11 @@ class Game {
         }
         
         return $finalScore;
+    }
+    
+    public function numberOfFrames()
+    {
+        return count($this->frames);
     }
     
     function scoreNextTwoThrows($index)
