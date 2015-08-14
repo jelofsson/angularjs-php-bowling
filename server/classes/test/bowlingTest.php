@@ -9,118 +9,143 @@ class BowlingTest extends \PHPUnit_Framework_TestCase
 
     public function testPerfectGame()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         for($i=0; $i<9; $i++) 
         {
             $g->add(10, 0);
         }
-        // Add last frame
         $g->add(10, 10, 10);
+        
+        $expected = 300;
+
+        // Act
+        $actual = $g->score();
 
         // Assert
-        $this->assertEquals(300, $g->score());
+        $this->assertEquals($expected, $actual);
     }
     
     public function testHeartbreakGame()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         for($i=0; $i<9; $i++) 
         {
             $g->add(10, 0);
         }
-        // Add last frame
         $g->add(10, 10, 9);
+        
+        $expected = 299;
+        
+        // Act
+        $actual = $g->score();
 
         // Assert
-        $this->assertEquals(299, $g->score());
+        $this->assertEquals($expected, $actual);
     }
 
     public function testTwoThrowsNoMark()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         $g->add(5, 4);
 
+        $expected = 9;
+        
+        // Act
+        $actual = $g->score();
+
         // Assert
-        $this->assertEquals(9, $g->score());
+        $this->assertEquals($expected, $actual);
     }
     
     public function testFourThrowsNoMark()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         $g->add(5, 4);
         $g->add(7, 2);
 
+        $expected = 18;
+        
+        // Act
+        $actual = $g->score();
+
         // Assert
-        $this->assertEquals(18, $g->score());
+        $this->assertEquals($expected, $actual);
     }
     
     public function testSimpleSpare()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         $g->add(3, 7);
         $g->add(3, 0);
 
+        $expected = 13;
+        
+        // Act
+        $actual = $g->scoreForFrame(1);
+
         // Assert
-        $this->assertEquals(13, $g->scoreForFrame(1));
+        $this->assertEquals($expected, $actual);
     }
         
     public function testSimpleStrike()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         $g->add(10, 0);
         $g->add(3, 6);
+        
+        $expectedScoreFrameOne = 19;
+        $expectedScore = 28;
+
+        // Act
+        $actualScoreFrameOne = $g->scoreForFrame(1);
+        $actualScore         = $g->score();
+        
 
         // Assert
-        $this->assertEquals(19, $g->scoreForFrame(1));
-        $this->assertEquals(28, $g->score());
+        $this->assertEquals($expectedScoreFrameOne, $actualScoreFrameOne);
+        $this->assertEquals($expectedScore, $actualScore);
     }
     
     
     public function testDoublePinfall()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         $g->add(10, 0);
         $g->add(10, 0);
         $g->add(9, 0);
 
+        $expected = 57;
+        
+        // Act
+        $actual = $g->score();
+
         // Assert
-        $this->assertEquals(57, $g->score());
+        $this->assertEquals($expected, $actual);
     }
     
     public function testTurkeyPinfall()
     {
-        // Create a new game object
+        // Arrange
         $g = new \Model\Game();
-
-        // Add regular frames
         $g->add(10, 0);
         $g->add(10, 0);
         $g->add(10, 0);
         $g->add(0, 9);
 
+        $expected = 78;
+        
+        // Act
+        $actual = $g->score();
+
         // Assert
-        $this->assertEquals(78, $g->score());
+        $this->assertEquals($expected, $actual);
     }
 
 }
